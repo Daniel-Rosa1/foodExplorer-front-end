@@ -39,3 +39,12 @@ Inicie o servidor
 ## Melhorias
 
 O menu carrossel está em desenvolvimento para melhorar a sua funcionalidade, na versão desktop. Atualmente para usá-lo é necessário usar as setas ou scroll do mouse.
+
+## Screenshots do projeto
+
+![App Screenshot](https://raw.githubusercontent.com/Daniel-Rosa1/foodExplorer-front-end/main/public/demonstra%C3%A7%C3%A3oes/Imagem%20do%20WhatsApp%20de%202024-01-23%20%C3%A0(s)%2017.57.13_8b28ac39.jpg)
+
+![App Screenshot](https://raw.githubusercontent.com/Daniel-Rosa1/foodExplorer-front-end/main/public/demonstra%C3%A7%C3%A3oes/Imagem%20do%20WhatsApp%20de%202024-01-23%20%C3%A0(s)%2017.58.02_0cd25bc0.jpg)
+
+![App Screenshot](https://raw.githubusercontent.com/Daniel-Rosa1/foodExplorer-front-end/main/public/demonstra%C3%A7%C3%A3oes/Imagem%20do%20WhatsApp%20de%202024-01-23%20%C3%A0(s)%2018.01.28_92813f62.jpg)
+
