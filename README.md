@@ -5,14 +5,37 @@ O [FoodExplorer](https://food-explorer-daniel.netlify.app/) é uma aplicação d
 
 ## Funcionalidades
 
-- Consumidores: criar cadastro, acessar a aplicação, visualizar pratos , filtrar pratos por nome e ingredientes e acessar pratos com informações detalhadas (novas funcionalidades em breve).
-- Administrador: pode realizar todas as ações que o consumidor e ainda pode criar, editar e excluir pratos (novas funcionalidades em breve).
+- Consumidores: criar cadastro; acessar a aplicação; visualizar pratos; filtrar pratos por nome e ingredientes e acessar pratos com informações detalhadas (novas funcionalidades em breve).
+- Administrador: cria, edita e exclui pratos, além de realizar as mesmas ações que o consumidor (novas funcionalidades em breve).
 
 
-## Rodar o projeto localmente
+## Rodando localmente
 
-- Clone o repositório, abra o cmd ou terminal do seu editor de códigp na pasta raiz do projeto e rode o comando |  npm instal | para instalar as dependencias do projeto
+Clone o repositório
 
-- Para que ele que ele seja servido localmente basta usar o comando | npm run dev | e o vite irá gerar uma URL para acessar a aplicação ( A [api](https://github.com/Daniel-Rosa1/foodExplorer-api) precisa estar rodando também)
+```bash
+  git clone https://github.com/Daniel-Rosa1/foodExplorer-front-end
+```
 
-- Navegue pelas pasta src/services e abra o arquivo api.js e altere a variavém > baseURL para: "http://localhost:3333" 
+Entre no diretório do projeto
+
+```bash
+  cd foodExplorer-api
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  npm run dev
+```
+- Navegue pelas pasta src/services e abra o arquivo api.js e altere a variável > baseURL para: "http://localhost:3333"
+
+## Melhorias
+
+O menu carrossel está em desenvolvimento para melhorar a sua funcionalidade, na versão desktop. Atualmente para usá-lo é necessário usar as setas ou scroll do mouse.
