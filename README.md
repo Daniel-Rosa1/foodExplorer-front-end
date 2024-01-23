@@ -2,6 +2,7 @@
 # [FoodExplorer](https://food-explorer-daniel.netlify.app/) 
 
 O [FoodExplorer](https://food-explorer-daniel.netlify.app/) é uma aplicação de menu interativo para um restaurante fictício, desenvolvida como projeto final do curso Explorer da Rocketseat.
+🚧 FoodExplorer-api is under development 🚧
 
 ## Funcionalidades
 
@@ -14,13 +15,13 @@ O [FoodExplorer](https://food-explorer-daniel.netlify.app/) é uma aplicação d
 Clone o repositório
 
 ```bash
-  git clone https://github.com/Daniel-Rosa1/foodExplorer-front-end
+ https://github.com/Daniel-Rosa1/foodExplorer-front-end
 ```
 
 Entre no diretório do projeto
 
 ```bash
-  cd foodExplorer-api
+  cd foodExplorer-front-end
 ```
 
 Instale as dependências
