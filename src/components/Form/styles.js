@@ -29,6 +29,10 @@ export  const Container = styled.form`
     color: ${({theme}) => theme.COLORS.LIGHT_100};
   }
 
+  @media (max-width:424px ) {
+    width: 100%;
+  }
+
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     
     background-color: transparent;

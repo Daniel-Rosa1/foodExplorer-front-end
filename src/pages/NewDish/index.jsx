@@ -54,7 +54,8 @@ export function NewDish(){
     if(newIngredients === ""){
       return alert("não é possível adicionar ingrediente vazio")
     }
-    setIngredients(prevState => [...prevState, newIngredients])
+    const sanitizedNewIngredients = newIngredients.trim().toLowerCase()
+    setIngredients(prevState => [...prevState, sanitizedNewIngredients])
     setNewIngredient("")
   }
 
@@ -98,10 +99,14 @@ export function NewDish(){
       return alert("Favor inserir descrição")
     }
 
+    const standardizedDescription = description[description.length-1] === "."
+      ? description
+      : description + "." 
+
     const newDish ={
-      name, 
+      name: name.trim(), 
       category, 
-      description, 
+      description: standardizedDescription, 
       price, 
       ingredients
     }
@@ -119,6 +124,26 @@ export function NewDish(){
     navigate(-1)
   }
 
+  function sanitizedDishName(dishName){
+    if(dishName){
+      const firstLetter = dishName[0].toUpperCase()
+      const sanitizeName = dishName.replace(dishName[0], firstLetter)
+      setName(sanitizeName) 
+    }else{
+      setName("")
+    }
+  }
+
+  function sanitizedDescription(description){
+    if(description){
+      const firstLetter = description[0].toUpperCase()
+      const descriptionInLowerCase = description.toLowerCase()
+      const sanitizeDescription = descriptionInLowerCase.replace(descriptionInLowerCase[0], firstLetter)
+      setDescription(sanitizeDescription) 
+    }else{
+      setDescription("")
+    }
+  }
 
   return(
     <Container >
@@ -152,7 +177,7 @@ export function NewDish(){
               type={"text"} 
               
               placeholder={"Ex.: Salada Ceasar"}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => sanitizedDishName(e.target.value)}
             />
 
             <SelectOption>
@@ -210,7 +235,7 @@ export function NewDish(){
               title={"Descrição"}
               value={description}
               placeholder={"Fale brevemente sobre o prato, seus ingredientes e composição"}
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={(e) => sanitizedDescription(e.target.value)}
             />
           </div>
 

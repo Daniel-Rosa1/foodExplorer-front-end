@@ -25,7 +25,7 @@ export const Main = styled.main`
   flex-direction: column;
   gap: 42px;
 
-  padding: 32px 7vw  ;
+  padding: 32px 7vw;
 
   a{
     width: fit-content;
@@ -72,8 +72,10 @@ export const Dish = styled.article`
   gap: 48px;
 
   >img{
-    width: 390px;
-    height: 390px;
+    max-width: 390px;
+    min-width: 390px;
+    max-height: 390px;
+    min-height: 390px;
     border-radius: 50%;
   }
 

@@ -13,24 +13,27 @@ import {Footer} from "../../components/Footer"
 export function Home(){
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [dishs, setDishs] = useState([]);
+  const [filteredDishes, setFilteredDishes] = useState([]);
   const [hasSearch, setHasSearch] = useState(false);
   const [search, setSearch] = useState("")
 
   useEffect(() =>{
     async function fetchDishs(){
-      const response = await api.get("/dish/")
+      const response = await api.get("/dish")
       setDishs(response.data)
     }
     fetchDishs()
-  },[hasSearch] ) 
+  },[] ) 
 
   useEffect(() =>{
     async function fetchDishs(){
       if(search){ 
-        const response = await api.get(`/dish?dishName=${search}&ingredients=${search}`)
-        setDishs(response.data)
+        const sanitizedSearch = search.trim().toLowerCase()
+        const response = await api.get(`/dish?dishName=${sanitizedSearch}&ingredients=${sanitizedSearch}`)
+        setFilteredDishes(response.data)
       }
     }
+
     fetchDishs()
     setHasSearch(true)
   },[search] )
@@ -38,6 +41,7 @@ export function Home(){
   useEffect(() =>{
     if(!search)
     setHasSearch(false)
+    setFilteredDishes([])
   },[search] )
 
   
@@ -60,63 +64,81 @@ export function Home(){
       <BannerArea>
         <Banner/>
       </BannerArea>
-      
 
-      
-        <Content>
+      <Content>
 
-    
-          <Section title={"Refeição"}>
-          {
-            dishs.map(dish =>(
-              dish.category === "Refeição" &&
-              <Card
-              key={String(dish.id)}
-              id={dish.id}
-              image={dish.dish_img}
-              name={dish.name}
-              description={dish.description}
-              price={dish.price}
-              />
-            ))
-          }
-        </Section>
-        
+        { filteredDishes.length>0 &&
+          <Section title={"Pesquisados"}>
+            {
+              filteredDishes.map(dish =>(
+                <Card
+                  key={String(dish.id)}
+                  id={dish.id}
+                  image={dish.dish_img}
+                  name={dish.name}
+                  description={dish.description}
+                  price={dish.price}
+                />
+              ))
+            }
+          </Section>
+        }
 
-        <Section title={"Sobremesas"}>
-          {
-            dishs.map(dish =>(
-              dish.category === "Sobremesa" &&
-              <Card
-              key={String(dish.id)}
-              id={dish.id}
-              image={dish.dish_img}
-              name={dish.name}
-              description={dish.description}
-              price={dish.price}
-              />
-            ))
-          }
-        </Section>
+        {
+          hasSearch === false && <>
+          
+            <Section title={"Refeição"}>
+              {
+                dishs.map(dish =>(
+                  dish.category === "Refeição" &&
+                  <Card
+                  key={String(dish.id)}
+                  id={dish.id}
+                  image={dish.dish_img}
+                  name={dish.name}
+                  description={dish.description}
+                  price={dish.price}
+                  />
+                ))
+              }
+            </Section>
+            
 
-        <Section title={"Bebidas"}>
-          {
-            dishs.map(dish =>(
-              dish.category === "Bebidas" &&
-              <Card
-              key={String(dish.id)}
-              id={dish.id}
-              image={dish.dish_img}
-              name={dish.name}
-              description={dish.description}
-              price={dish.price}
-              />
-            ))
-          }
-        </Section>
- 
+            <Section title={"Sobremesas"}>
+              {
+                dishs.map(dish =>(
+                  dish.category === "Sobremesa" &&
+                  <Card
+                  key={String(dish.id)}
+                  id={dish.id}
+                  image={dish.dish_img}
+                  name={dish.name}
+                  description={dish.description}
+                  price={dish.price}
+                  />
+                ))
+              }
+            </Section>
 
-        </Content>
+            <Section title={"Bebidas"}>
+              {
+                dishs.map(dish =>(
+                  dish.category === "Bebidas" &&
+                  <Card
+                  key={String(dish.id)}
+                  id={dish.id}
+                  image={dish.dish_img}
+                  name={dish.name}
+                  description={dish.description}
+                  price={dish.price}
+                  />
+                ))
+              }
+            </Section>
+          </>
+        }
+
+      </Content>
       
 
       <Footer/>

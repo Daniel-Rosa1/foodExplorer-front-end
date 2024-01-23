@@ -30,6 +30,7 @@ export  const Container = styled.div`
     border-radius: 8px;
 
     &:placeholder{
+      font-size: 1.333rem ;
       color: ${({theme}) => theme.COLORS.LIGHT_500};
     }
   }

@@ -13,7 +13,7 @@ export const Container = styled.div`
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     flex-direction: column;
     justify-content: flex-start;
-    padding: 23px;
+    padding: 24px;
   }
   
 `

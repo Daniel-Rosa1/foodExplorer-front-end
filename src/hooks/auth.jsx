@@ -2,8 +2,6 @@ import {createContext, useContext, useState, useEffect} from 'react';
 import { api } from "../services/api";
 const AuthContext = createContext({});
 
-
-
 function AuthProvider({ children }) {
   const [data, setData] = useState({});
 
@@ -34,7 +32,6 @@ function AuthProvider({ children }) {
     setData({});
   }
 
-
   useEffect(() => {
     const user = localStorage.getItem("@explorerFood:user");
     if (user) {
@@ -57,7 +54,6 @@ function AuthProvider({ children }) {
 
 function useAuth() {
   const context = useContext(AuthContext);
-
   return context;
 }
 

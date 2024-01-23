@@ -61,10 +61,10 @@ export  const Container = styled.div`
       font-weight: 400;
     }
 
-    >section{
-      div{
-      gap: 16px;
-    }
+    >section {
+      >div{
+        gap: 16px;
+      }
     }
   }
 

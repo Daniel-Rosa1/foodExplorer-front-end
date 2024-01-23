@@ -86,7 +86,8 @@ export function EditDish(){
     if(newIngredients === ""){
       return alert("não é possível adicionar ingrediente vazio")
     }
-    setIngredients(prevState => [...prevState, newIngredients])
+    const sanitizedNewIngredients = newIngredients.trim().toLowerCase()
+    setIngredients(prevState => [...prevState, sanitizedNewIngredients])
     setNewIngredient("")
   }
 
@@ -130,11 +131,15 @@ export function EditDish(){
       return alert("Favor inserir descrição")
     }
 
+    const standardizedDescription = description[description.length-1] === "."
+      ? description
+      : description + "." 
+
     const newDish ={
       id: params.id,
-      name, 
+      name: name.trim(), 
       category, 
-      description, 
+      description : standardizedDescription, 
       price, 
       ingredients,
       dish_img
@@ -151,7 +156,7 @@ export function EditDish(){
     
 
     alert(`${category} atualizado com sucesso!`)
-    navigate(-1)
+    navigate("/")
   }
 
   async function deleteDish(){
@@ -159,7 +164,28 @@ export function EditDish(){
 
     if(confirm){
       await api.delete(`/dish/${params.id}`)
-      navigate(-1)
+      navigate("/")
+    }
+  }
+
+  function sanitizedDishName(dishName){
+    if(dishName){
+      const firstLetter = dishName[0].toUpperCase()
+      const sanitizeName = dishName.replace(dishName[0], firstLetter)
+      setName(sanitizeName) 
+    }else{
+      setName("")
+    }
+  }
+
+  function sanitizedDescription(description){
+    if(description){
+      const firstLetter = description[0].toUpperCase()
+      const descriptionInLowerCase = description.toLowerCase()
+      const sanitizeDescription = descriptionInLowerCase.replace(descriptionInLowerCase[0], firstLetter)
+      setDescription(sanitizeDescription) 
+    }else{
+      setDescription("")
     }
   }
 
@@ -197,7 +223,7 @@ export function EditDish(){
                 type={"text"} 
                 value={name}
                 placeholder={"Ex.: Salada Ceasar"}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => sanitizedDishName(e.target.value)}
               />
 
               <SelectOption>
@@ -256,7 +282,7 @@ export function EditDish(){
                 title={"Descrição"}
                 value={description}
                 placeholder={"Fale brevemente sobre o prato, seus ingredientes e composição"}
-                onChange={(e) => setDescription(e.target.value)}
+                onChange={(e) => sanitizedDescription(e.target.value)}
               />
             </div>
 

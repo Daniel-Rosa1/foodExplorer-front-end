@@ -23,10 +23,7 @@ export function Section({children, title}){
       <h3>{title}</h3>
       <section>
         <ButtonLeft>{ArrowLeft}</ButtonLeft>
-        <Carousel
-
-         ref={carousel}
-        >
+        <Carousel>
           {children}
         </Carousel>   
         <ButtonRight onClick={moveLeft}>{ArrowRight}</ButtonRight>
