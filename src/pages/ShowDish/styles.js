@@ -85,8 +85,10 @@ export const Dish = styled.article`
     gap: 16px;
 
     >img{
-      width: 264px;
-      height: 264px;
+      max-width: 264px;
+      min-width: 264px;
+      max-height: 264px;
+      min-height: 264px;
     }
   }
 
