@@ -2,7 +2,7 @@
 # [FoodExplorer](https://food-explorer-daniel.netlify.app/) 
 
 O [FoodExplorer](https://food-explorer-daniel.netlify.app/) é uma aplicação de menu interativo para um restaurante fictício, desenvolvida como projeto final do curso Explorer da Rocketseat.
-🚧 FoodExplorer-api is under development 🚧
+🚧 FoodExplorer-front-and is under development 🚧
 
 ## Funcionalidades
 
